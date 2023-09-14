@@ -22,6 +22,7 @@ const typeDefs = `
     }
     
     type Query {
+        getSingleUser: User
         me: User
     }
 

@@ -91,7 +91,7 @@ const SearchBooks = () => {
   };
 
   if (loading) {
-    return <h2>loading...</h2>;
+    return <h2>LOADING...</h2>;
   }
 
   return (
