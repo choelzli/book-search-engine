@@ -23,7 +23,7 @@ const SearchBooks = () => {
 
   const me = data?.me || {};
 
-  const [saveBook, { error }] = useMutation(SAVE_BOOK);
+  const [saveBook, { error } ] = useMutation(SAVE_BOOK);
 
   const [searchedBooks, setSearchedBooks] = useState([]);
   // create state for holding our search field data
@@ -79,7 +79,7 @@ const SearchBooks = () => {
       const { data } = await saveBook({
         variables: {
           id: me._id,
-          bookToSave: bookToSave,
+          book: bookToSave,
         }
       });
 
