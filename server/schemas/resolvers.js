@@ -23,7 +23,7 @@ const resolvers = {
             const user = await User.findOne({ email: email });
 
             if (!user) {
-                throw AuthenticationError;
+                throw AuthenticationError;  
             }
 
             const correctPw = await user.isCorrectPassword(password);
@@ -33,12 +33,11 @@ const resolvers = {
             }
 
             const token = signToken(user);
-
             return { token, user };
         },
 
         addUser: async (parent, { username, email, password }) => {
-            const user = await User.create(username, email, password);
+            const user = await User.create({ username, email, password });
             const token = signToken(user);
 
             return {token, user };
