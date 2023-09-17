@@ -30,7 +30,6 @@ mutation saveBook($id: ID!,$book: BookInput!){
   saveBook(_id: $id,book: $book){
     _id
     savedBooks{
-      _id
       authors
       description
       bookId
@@ -49,7 +48,6 @@ export const REMOVE_BOOK = gql`
       username
       email
       savedBooks {
-        _id
         authors
         description
         bookId
