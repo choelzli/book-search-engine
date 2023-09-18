@@ -8,6 +8,7 @@ import {
 } from '@apollo/client';
 import { setContext } from '@apollo/client/link/context';
 
+import Auth from './utils/auth';
 import Navbar from './components/Navbar';
 
 const httpLink = createHttpLink({
@@ -33,6 +34,12 @@ const client = new ApolloClient({
 });
 
 function App() {
+  const token = Auth.getToken()
+  // If the token is somehow in localStorage but expired remove it
+  if (token && Auth.isTokenExpired(token)) {
+    localStorage.removeItem('id_token');
+  }
+
   return (
     <ApolloProvider client={client}>
       <Navbar />
